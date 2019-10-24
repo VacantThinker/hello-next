@@ -7,7 +7,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "next",
     "build": "next build",
-    "start": "next start"
+    "export": "next export",
+    "start": "next start",
+    "startWithPort": "next start -p %PORT%"
   },
   "keywords": [],
   "author": "",
@@ -18,5 +20,8 @@
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
     "react-markdown": "^4.2.2"
+  },
+  "devDependencies": {
+    "cross-env": "^6.0.3"
   }
 }

@@ -1,8 +1,13 @@
 
-#build, node_modules
+#tools
 .idea
+#next build
 .next
+#node_modules
 node_modules
+#static html
+out
+
 
 #package lock
 package-lock.json
