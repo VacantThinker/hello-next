@@ -1,8 +1,24 @@
-import MyLayout from "../../components/MyLayout";
-import React from "react";
-import fetch from "isomorphic-unfetch";
-import {useRouter} from "next/router";
-import Markdown from 'react-markdown';
+import MyLayout from '../../components/MyLayout';
+import React from 'react';
+import fetch from 'isomorphic-unfetch';
+
+const Post = (props) => (
+  <MyLayout>
+    <h1>{props.show.name}</h1>
+    <p>{props.show.summary.replace(/<[/]?[pb]>/g, '')}</p>
+    <img src={props.show.image.medium}/>
+  </MyLayout>
+);
+
+Post.getInitialProps = async function(context) {
+  const { id } = context.query;
+  const res = await fetch(`https://api.tvmaze.com/shows/${id}`);
+  const show = await res.json();
+  // console.log(`fetched show: ${show.name}`);
+  return { show };
+};
+
+export default Post;
 
 // export default function Post() {
 //     const router = useRouter();
@@ -13,26 +29,6 @@ import Markdown from 'react-markdown';
 //         </MyLayout>
 //     )
 // }
-
-const Post = (props) => (
-    <MyLayout>
-        <h1>{props.show.name}</h1>
-        <p>{props.show.summary.replace(/<[/]?[pb]>/g, '')}</p>
-        <img src={props.show.image.medium}/>
-    </MyLayout>
-);
-
-Post.getInitialProps = async function (context) {
-    const {id} = context.query;
-    const res = await fetch(`https://api.tvmaze.com/shows/${id}`);
-    const show = await res.json();
-
-    console.log(`fetched show: ${show.name}`);
-
-    return {show};
-};
-
-export default Post;
 
 // export default () => {
 //     const router = useRouter();

@@ -8,20 +8,24 @@
     "dev": "next",
     "build": "next build",
     "export": "next export",
+    "deploy": "next build && next export && echo '' > out/.nojekyll",
     "start": "next start",
     "startWithPort": "next start -p %PORT%"
+  },
+  "prettier": {
+    "singleQuote": true
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
   "dependencies": {
     "isomorphic-unfetch": "^3.0.0",
-    "next": "^9.1.1",
-    "react": "^16.11.0",
-    "react-dom": "^16.11.0",
-    "react-markdown": "^4.2.2"
+    "next": "9.1.2",
+    "react": "16.11.0",
+    "react-dom": "16.11.0"
   },
   "devDependencies": {
-    "cross-env": "^6.0.3"
+    "babel-plugin-transform-define": "^2.0.0",
+    "prettier": "1.18.2"
   }
 }
