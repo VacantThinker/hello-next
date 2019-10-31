@@ -5,10 +5,10 @@ export default function Header() {
   return (
     <>
       <div>
-        <Link href={'/'} as={process.env.HOST_URL + '/'}>
+        <Link href={'/'} as={process.env.BACKEND_URL + '/'}>
           <a>Home</a>
         </Link>
-        <Link href={'/about'} as={process.env.HOST_URL + '/about'}>
+        <Link href={'/about'} as={process.env.BACKEND_URL + '/about'}>
           <a>About</a>
         </Link>
       </div>

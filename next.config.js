@@ -8,23 +8,41 @@ const fs = require('fs');
 const path = require('path');
 
 module.exports = {
-  exportPathMap: function() {
-    // Async异步 --> 现在: 同步
+  // exportPathMap: function() {
+  //   // Async异步 --> 现在: 同步
+  //   const paths = {
+  //     '/': { page: '/' },
+  //     '/about': { page: '/about' }
+  //   };
+  //   const readFileSync = fs.readFileSync(
+  //     path.join(__dirname, 'batman.json'),
+  //     'utf-8'
+  //   );
+  //   const batmanArr = JSON.parse(readFileSync);
+  //   // const res = await fetch('https://api.tvmaze.com/search/shows?q=batman');
+  //   // const data = await res.json();
+  //
+  //   batmanArr.forEach(data => {
+  //     const show = data.show;
+  //
+  //     paths[`/show/${show.id}`] = {
+  //       page: '/show/[id]',
+  //       query: { id: show.id }
+  //     };
+  //   });
+  //
+  //   return paths;
+  // },
+  exportPathMap: async function() {
     const paths = {
       '/': { page: '/' },
       '/about': { page: '/about' }
     };
-    const readFileSync = fs.readFileSync(
-      path.join(__dirname, 'batman.json'),
-      'utf-8'
-    );
-    const batmanArr = JSON.parse(readFileSync);
-    // const res = await fetch('https://api.tvmaze.com/search/shows?q=batman');
-    // const data = await res.json();
+    const res = await fetch('https://api.tvmaze.com/search/shows?q=batman');
+    const obj = await res.json();
+    const shows = obj.map(entry => entry.show);
 
-    batmanArr.map(data => {
-      const show = data.show;
-
+    shows.forEach(show => {
       paths[`/show/${show.id}`] = {
         page: '/show/[id]',
         query: { id: show.id }

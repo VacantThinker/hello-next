@@ -14,7 +14,7 @@ const Index = props => {
           <li key={show.id}>
             <Link
               href={`${dirName}${param_id}`}
-              as={process.env.HOST_URL + `${dirName}${show.id}`}
+              as={process.env.BACKEND_URL + `${dirName}${show.id}`}
             >
               <a>{show.name}</a>
             </Link>
