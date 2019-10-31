@@ -1,9 +1,10 @@
 const fetch = require('isomorphic-unfetch');
-const hostUrl = '/hello-next-pages';
+// const hostUrl = '/hello-next-pages';
+const hostUrl = '';
 const prod = process.env.NODE_ENV === 'production';
 
 module.exports = {
-  assetPrefix: prod ? '/hello-next-pages' : '',
+  assetPrefix: prod ? hostUrl : '',
   exportPathMap: async function() {
     const paths = {
       '/': { page: '/' },
