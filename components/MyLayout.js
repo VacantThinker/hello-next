@@ -12,7 +12,7 @@ export default function MyLayout(props) {
         div {
           margin: 20;
           padding: 20;
-          border: '1px solid #ddd';
+          border: 1px solid #ddd;
         }
       `}</style>
     </>
