@@ -10,8 +10,8 @@ export default function MyLayout(props) {
       </div>
       <style jsx>{`
         div {
-          margin: 20;
-          padding: 20;
+          margin: 20px;
+          padding: 20px;
           border: 1px solid #ddd;
         }
       `}</style>

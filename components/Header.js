@@ -14,7 +14,7 @@ export default function Header() {
       </div>
       <style jsx>{`
         a {
-          margin-right: 15;
+          margin-right: 15px;
         }
       `}</style>
     </>
